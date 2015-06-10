@@ -52,3 +52,50 @@ $ brew cask cleanup
 $ brew install boost boot2docker cmake php53 php53-apc php53-mcrypt php53-memcached php53-xdebug composer curl docker elasticsearch git go httpie imagemagick jruby libmemcached libpng libssh2 libyaml mcrypt memcached mongodb mysql openssl  phpunit pkg-config qt rbenv redis rethinkdb sqlite wget
 $ brew cleanup
 ```
+
+# Copy Zsh settings
+
+    prefs/zsh/*
+
+
+## PHP.ini
+
+/etc/php.ini
+
+    upload_max_filesize = 150M
+    mysql.default_socket = /tmp/mysql.sock
+
+## MySQL config
+
+[https://gist.githubusercontent.com/geraldclark/b841b36807aa5b761530/raw/ff447b0f852dcf81635713075be0c51bf6a85f7b/.my.cnf](Jerry's my.cnf)
+
+    $ brew services start mysql
+
+## Apache Config
+
+### /etc/apache2/httpd.conf
+
+Add `LoadModules`
+
+    <Directory />
+        #AllowOverride none
+        #Require all denied
+    </Directory>
+
+
+    # Virtual hosts
+    Include /private/etc/apache2/extra/httpd-vhosts.conf
+
+### /etc/apache2/extra/httpd-userdir.conf
+
+    Include /private/etc/apache2/users/*.conf
+
+### /etc/apache2/extra/httpd-vhosts.conf
+
+Copy from /apache/
+
+
+## Add User to www group
+
+    $ sudo dseditgroup -o edit -a <USERNAME> -t user www
+
