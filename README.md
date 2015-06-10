@@ -1,14 +1,54 @@
+## Prezto
+
+[Installation Instructions](https://github.com/sorin-ionescu/prezto)
+
+```
+$ zsh
+$ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+$ setopt EXTENDED_GLOB
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  done
+$ chsh -s /bin/zsh
+```
+
 ## Homebrew
 
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 ## Brew Cask
 
-  brew install caskroom/cask/brew-cask
+    $ brew install caskroom/cask/brew-cask
 
 ## NVM
 
-  brew install nvm
+    $ brew install nvm
 
 <strike>curl https://raw.github.com/creationix/nvm/master/install.sh | sh</strike>
 
+## Taps
+
+    $ brew tap homebrew/php
+    $ brew tap homebrew/services
+
+## Install JVM
+
+[Download](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+## Casks
+
+```
+$ brew cask install atom jing cyberduck imageoptim github firefox kitematic macdown namechanger sequel-pro vagrant virtualbox vlc skitch dropbox
+$ brew cask cleanup
+```
+
+## Install Sublime Text
+
+    $ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+
+## Brews
+
+```
+$ brew install boost boot2docker cmake php53 php53-apc php53-mcrypt php53-memcached php53-xdebug composer curl docker elasticsearch git go httpie imagemagick jruby libmemcached libpng libssh2 libyaml mcrypt memcached mongodb mysql openssl  phpunit pkg-config qt rbenv redis rethinkdb sqlite wget
+$ brew cleanup
+```
