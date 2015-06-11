@@ -67,7 +67,7 @@ $ brew cleanup
 
 ## MySQL config
 
-[https://gist.githubusercontent.com/geraldclark/b841b36807aa5b761530/raw/ff447b0f852dcf81635713075be0c51bf6a85f7b/.my.cnf](Jerry's my.cnf)
+[Jerry's my.cnf](https://gist.githubusercontent.com/geraldclark/b841b36807aa5b761530/raw/ff447b0f852dcf81635713075be0c51bf6a85f7b/.my.cnf)
 
     $ brew services start mysql
 
@@ -98,4 +98,5 @@ Copy from /apache/
 ## Add User to www group
 
     $ sudo dseditgroup -o edit -a <USERNAME> -t user www
+    $ sudo dseditgroup -o edit -a <USERNAME> -t user wheel
 
