@@ -1,9 +1,15 @@
 # Alias'
 
 # git status
-alias gs="git status -s "
-alias gb="git checkout -b "
+alias gs="git status -s"
 alias cgs="clear && git status -s"
+gb() {
+  if [[-z $1]]; then
+    git branch
+  else
+    git checkout -b $1
+  fi
+}
 
 alias getdate='date -j -f "%a %b %d %T %Z %Y" "`date`" "+%s" | pbcopy'
 alias list="ls -go | awk '{print \$7;}'"
