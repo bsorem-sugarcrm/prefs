@@ -35,6 +35,10 @@ $ chsh -s /bin/zsh
 
 [Download](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
+or
+
+`brew cask install java`
+
 ## Casks
 
 ```
@@ -49,7 +53,7 @@ $ brew cask cleanup
 ## Brews
 
 ```
-$ brew install boost boot2docker cmake php53 php53-apc php53-mcrypt php53-memcached php53-xdebug composer curl docker elasticsearch git go httpie imagemagick jruby libmemcached libpng libssh2 libyaml mcrypt memcached mongodb mysql openssl  phpunit pkg-config qt rbenv redis rethinkdb sqlite wget
+$ brew install boost boot2docker cmake php53 php53-apc php53-mcrypt php53-memcached php53-xdebug composer curl docker elasticsearch git go httpie imagemagick jruby libmemcached libpng libssh2 libyaml mcrypt memcached mongodb mysql openssl  phpunit pkg-config qt rbenv ruby-build redis rethinkdb sqlite wget
 $ brew cleanup
 ```
 
@@ -60,10 +64,14 @@ $ brew cleanup
 
 ## PHP.ini
 
+<strike>/usr/local/etc/php/5.3/php.ini</strike>
+
 /etc/php.ini
 
     upload_max_filesize = 150M
     mysql.default_socket = /tmp/mysql.sock
+    memory_limit = 4G
+    display_errors = Off
 
 ## MySQL config
 
@@ -76,6 +84,8 @@ $ brew cleanup
 ### /etc/apache2/httpd.conf
 
 Add `LoadModules`
+
+    LoadModule php5_module /usr/local/opt/php53/libexec/apache2/libphp5.so
 
     <Directory />
         #AllowOverride none
@@ -100,3 +110,20 @@ Copy from /apache/
     $ sudo dseditgroup -o edit -a <USERNAME> -t user www
     $ sudo dseditgroup -o edit -a <USERNAME> -t user wheel
 
+
+## Android
+
+`brew cask install android-studio`
+
+`brew install android-sdk`
+
+
+
+## Repos
+
+Checkout these repos:
+
+
+Ignore permission changes:
+
+`git config core.fileMode false`
