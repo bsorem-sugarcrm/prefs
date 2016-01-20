@@ -66,6 +66,10 @@ $ brew cleanup
 
 <strike>/usr/local/etc/php/5.3/php.ini</strike>
 
+Symlink php.ini:
+
+    ln -s /usr/local/etc/php/{{VERSION}}/php.ini /etc/php.ini
+
 /etc/php.ini
 
     upload_max_filesize = 150M

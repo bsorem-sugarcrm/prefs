@@ -8,12 +8,18 @@ alias phptest="phpunit --configuration tests/phpuc.xml --coverage-html=custom/te
 alias phplog="tail -f -n 20 /private/var/log/apache2/error_log"
 alias slog="tail -f -n 20 $CODE/dock/sugarcrm.log"
 
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # sugarfuel alias'
-alias ccc="cd $CODE/SugarFuel && php oil r SugarFuel:clearclientcache dock && cd -"
-alias cca="cd $CODE/SugarFuel && php oil r SugarFuel:clearCache dock && cd -"
-alias re="cd $CODE/SugarFuel && php oil r SugarFuel:quickRepair dock && cd -"
+alias ccc="cd $CODE/SugarFuel/laravel && php artisan SugarFuel:clearclientcache dock && cd -"
+alias cca="cd $CODE/SugarFuel/laravel && php artisan SugarFuel:clearCache dock && cd -"
+alias re="cd $CODE/SugarFuel/laravel && php artisan SugarFuel:quickRepair dock && cd -"
 
 sf() { cd $CODE/SugarFuel && php oil r SugarFuel:"$*" dock && cd -; }
+lar() { cd $CODE/SugarFuel/laravel && php artisan SugarFuel:"$*" dock && cd -; }
+
+dupfile() { cd $CODE/dock/upload && ls -la "$*" && ls -la "full/$*"* && cd -; }
 
 # Golang
 export GOPATH=$CODE.go
