@@ -12,12 +12,12 @@ export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 # sugarfuel alias'
-alias ccc="cd $CODE/SugarFuel/laravel && php artisan SugarFuel:clearclientcache dock && cd -"
-alias cca="cd $CODE/SugarFuel/laravel && php artisan SugarFuel:clearCache dock && cd -"
-alias re="cd $CODE/SugarFuel/laravel && php artisan SugarFuel:quickRepair dock && cd -"
+# alias ccc="cd $CODE/SugarFuel/laravel && php artisan SugarFuel:clearclientcache dock && cd -"
+# alias cca="cd $CODE/SugarFuel/laravel && php artisan SugarFuel:clearCache dock && cd -"
+# alias re="cd $CODE/SugarFuel/laravel && php artisan SugarFuel:quickRepair dock && cd -"
 
-sf() { cd $CODE/SugarFuel && php oil r SugarFuel:"$*" dock && cd -; }
-lar() { cd $CODE/SugarFuel/laravel && php artisan SugarFuel:"$*" dock && cd -; }
+sf() { cd $CODE/SugarFuel && php oil r SugarFuel:"$2" "$1" && cd -; }
+lar() { cd $CODE/SugarFuel/laravel && php artisan SugarFuel:"$2" "$1" && cd -; }
 
 dupfile() { cd $CODE/dock/upload && ls -la "$*" && ls -la "full/$*"* && cd -; }
 

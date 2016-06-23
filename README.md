@@ -1,3 +1,10 @@
+# Installation
+
+    curl -s https://raw.githubusercontent.com/bsorem-sugarcrm/prefs/master/install.sh | sh
+
+
+# Manual Installation
+
 ## Prezto
 
 [Installation Instructions](https://github.com/sorin-ionescu/prezto)
@@ -12,6 +19,18 @@ $ setopt EXTENDED_GLOB
 $ chsh -s /bin/zsh
 ```
 
+## Get this repo
+
+    $ mkdir code && cd code
+    $ curl -Lk https://github.com/bsorem-sugarcrm/prefs/archive/master.zip > prefs.zip
+    $ unzip -a prefs.zip && rm -f prefs.zip
+    $ cd prefs
+
+## Copy Zsh settings
+
+    $ ln -s ~/code/prefs/zsh/zpreztorc ~/.zpreztorc
+    $ ln -s ~/code/prefs/zsh/zprofile ~/.zprofile
+
 ## Homebrew
 
     $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -22,38 +41,26 @@ $ chsh -s /bin/zsh
 
 ## NVM
 
-    $ brew install nvm
-
-<strike>curl https://raw.github.com/creationix/nvm/master/install.sh | sh</strike>
+    $ curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 
 ## Taps
 
-    $ brew tap homebrew/php
     $ brew tap homebrew/services
-
-## Install JVM
-
-[Download](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-
-or
-
-`brew cask install java`
+    $ brew tap homebrew/dupes
+    $ brew tap homebrew/versions
+    $ brew tap homebrew/homebrew-php
 
 ## Casks
 
 ```
-$ brew cask install atom jing cyberduck imageoptim github firefox kitematic macdown namechanger sequel-pro vagrant virtualbox vlc skitch dropbox
+$ brew cask install alfred android-studio atom bettertouchtool cyberduck dropbox firefox github-desktop gitkraken imageoptim iterm2 java jing kitematic macdown namechanger nylas-n1 qlmarkdown sequel-pro sketch skitch sublime-text the-unarchiver vagrant virtualbox vivaldi vlc
 $ brew cask cleanup
 ```
-
-## Install Sublime Text
-
-    $ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 
 ## Brews
 
 ```
-$ brew install boost boot2docker cmake php53 php53-apc php53-mcrypt php53-memcached php53-xdebug composer curl docker elasticsearch git go httpie imagemagick jruby libmemcached libpng libssh2 libyaml mcrypt memcached mongodb mysql openssl  phpunit pkg-config qt rbenv ruby-build redis rethinkdb sqlite wget
+$ brew install boost cmake composer curl docker elasticsearch freetype git go httpie imagemagick kafka libmemcached libsass libssh2 libyaml mcrypt memcached mongodb mysql openssl php53 php53-apc php53-igbinary php53-mcrypt php53-memcached php53-xdebug php54 php54-apc php54-igbinary php54-mcrypt php54-memcached php54-xdebug php56 phpdocumentor phpunit pkg-config rbenv redis rethinkdb sqlite wget zookeeper
 $ brew cleanup
 ```
 
@@ -115,19 +122,55 @@ Copy from /apache/
     $ sudo dseditgroup -o edit -a <USERNAME> -t user wheel
 
 
+## Ignore Permissions Changes in Git
+
+`git config core.fileMode false`
+
 ## Android
 
 `brew cask install android-studio`
 
 `brew install android-sdk`
 
+## OpenCV
 
+```
+$ brew tap homebrew/science
+$ brew install opencv
+$ brew cleanup
+```
 
-## Repos
+## Atom Plugins
 
-Checkout these repos:
+`$ apm install atom-beautify atom-ternjs autocomplete-php color-picker emmet highlight-line jshint linter linter-eslint merge-conflicts minimap pigments react tabs-to-spaces linter-phpcs tool-bar tool-bar-main simple-drag-drop-text docblockr auto-update-packages file-icons`
 
+```
+atom-beautify
+atom-ternjs
+autocomplete-php
+color-picker
+emmet
+highlight-line
+jshint
+linter
+linter-eslint
+merge-conflicts
+minimap
+pigments
+react
+tabs-to-spaces
+linter-phpcs
+tool-bar
+tool-bar-main
+simple-drag-drop-text
+docblockr
+auto-update-packages
+file-icons
+```
 
-Ignore permission changes:
+### Optional
 
-`git config core.fileMode false`
+```
+activate-power-mode
+git-time-machine
+```
