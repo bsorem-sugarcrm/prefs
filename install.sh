@@ -32,6 +32,8 @@ if [[ "$(uname)" = "Darwin" ]]; then
   brew tap homebrew/dupes
   brew tap homebrew/versions
   brew tap homebrew/homebrew-php
+  brew tap homebrew/science
+  brew tap homebrew/python
 
   ## Casks
   brew cask install alfred android-studio atom bettertouchtool cyberduck dropbox firefox github-desktop gitkraken imageoptim iterm2 java jing kitematic macdown namechanger nylas-n1 qlmarkdown sequel-pro sketch skitch sublime-text the-unarchiver vagrant virtualbox vivaldi vlc
@@ -40,7 +42,6 @@ if [[ "$(uname)" = "Darwin" ]]; then
   brew install boost cmake composer curl docker elasticsearch freetype git go httpie imagemagick kafka libmemcached libsass libssh2 libyaml mcrypt memcached mongodb mysql openssl php53 php53-apc php53-igbinary php53-mcrypt php53-memcached php53-xdebug php54 php54-apc php54-igbinary php54-mcrypt php54-memcached php54-xdebug php56 phpdocumentor phpunit pkg-config rbenv redis rethinkdb sqlite wget zookeeper
 
   ## OpenCV
-  brew tap homebrew/science
   brew install opencv
 
   # brew cleanup

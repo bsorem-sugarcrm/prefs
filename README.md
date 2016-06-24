@@ -49,6 +49,8 @@ $ chsh -s /bin/zsh
     $ brew tap homebrew/dupes
     $ brew tap homebrew/versions
     $ brew tap homebrew/homebrew-php
+    $ brew tap homebrew/science
+    $ brew tap homebrew/python
 
 ## Casks
 
@@ -109,7 +111,7 @@ Add `LoadModules`
 
 ### /etc/apache2/extra/httpd-userdir.conf
 
-    Include /private/etc/apache2/users/*.conf
+`Include /private/etc/apache2/users/*.conf`
 
 ### /etc/apache2/extra/httpd-vhosts.conf
 
