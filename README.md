@@ -51,18 +51,19 @@ $ chsh -s /bin/zsh
     $ brew tap homebrew/homebrew-php
     $ brew tap homebrew/science
     $ brew tap homebrew/python
+    $ brew tap homebrew/apache
 
 ## Casks
 
 ```
-$ brew cask install alfred android-studio atom bettertouchtool cyberduck dropbox firefox github-desktop gitkraken imageoptim iterm2 java jing kitematic macdown namechanger nylas-n1 qlmarkdown sequel-pro sketch skitch sublime-text the-unarchiver vagrant virtualbox vivaldi vlc
+$ brew cask install alfred android-studio atom bettertouchtool cyberduck dropbox firefox github-desktop gitkraken hyperterm imageoptim iterm2 java jing kitematic macdown namechanger nylas-n1 qlmarkdown sequel-pro sketch skitch sublime-text the-unarchiver vagrant virtualbox vivaldi vlc
 $ brew cask cleanup
 ```
 
 ## Brews
 
 ```
-$ brew install boost cmake composer curl docker elasticsearch freetype git go httpie imagemagick kafka libmemcached libsass libssh2 libyaml mcrypt memcached mongodb mysql openssl php53 php53-apc php53-igbinary php53-mcrypt php53-memcached php53-xdebug php54 php54-apc php54-igbinary php54-mcrypt php54-memcached php54-xdebug php56 phpdocumentor phpunit pkg-config rbenv redis rethinkdb sqlite wget zookeeper
+$ brew install boost cmake composer curl diff-so-fancy docker elasticsearch freetype git go httpie imagemagick kafka libmemcached libsass libssh2 libyaml mariadb mcrypt memcached mongodb mysql openssl php53 php53-apc php53-igbinary php53-mcrypt php53-memcached php53-xdebug php54 php54-apc php54-igbinary php54-mcrypt php54-memcached php54-xdebug php56 phpdocumentor phpunit php-code-sniffer pkg-config rbenv redis rethinkdb sqlite wget zookeeper
 $ brew cleanup
 ```
 
@@ -77,7 +78,8 @@ $ brew cleanup
 
 Symlink php.ini:
 
-    ln -s /usr/local/etc/php/{{VERSION}}/php.ini /etc/php.ini
+    ## ln -s /usr/local/etc/php/{{VERSION}}/php.ini /etc/php.ini
+    ln -sf $CODE/prefs/php/php.ini /etc/php.ini
 
 /etc/php.ini
 
@@ -92,17 +94,39 @@ Symlink php.ini:
 
     $ brew services start mysql
 
+### Use MariaDB instead
+
+`brew install mariadb`
+
+`mysql_install_db`
+
 ## Apache Config
+
+Unload Apache launcher:
+
+`sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null`
+
+Install Apache 2.4 via Homebrew
+
+`brew install -v httpd24 --with-brewed-openssl`
+
+Launch Apache:
+
+`brew services start httpd24`
 
 ### /etc/apache2/httpd.conf
 
 Add `LoadModules`
 
-    LoadModule php5_module /usr/local/opt/php53/libexec/apache2/libphp5.so
+    # LoadModule php5_module /usr/local/opt/php53/libexec/apache2/libphp5.so
+    LoadModule php5_module /usr/local/lib/libphp5.so
 
     <Directory />
         #AllowOverride none
         #Require all denied
+        AllowOverride All
+        Order allow,deny
+        Allow from all
     </Directory>
 
 
@@ -144,7 +168,7 @@ $ brew cleanup
 
 ## Atom Plugins
 
-`$ apm install atom-beautify atom-ternjs autocomplete-php color-picker emmet highlight-line jshint linter linter-eslint merge-conflicts minimap pigments react tabs-to-spaces linter-phpcs tool-bar tool-bar-main simple-drag-drop-text docblockr auto-update-packages file-icons`
+`$ apm install atom-beautify atom-ternjs autocomplete-php color-picker editorconfig emmet highlight-line jshint linter linter-eslint merge-conflicts minimap pigments project-manager react tabs-to-spaces linter-phpcs todo-show tool-bar tool-bar-main simple-drag-drop-text docblockr auto-update-packages file-icons`
 
 ```
 atom-beautify
@@ -168,6 +192,9 @@ simple-drag-drop-text
 docblockr
 auto-update-packages
 file-icons
+editorconfig
+project-manager
+todo-show
 ```
 
 ### Optional

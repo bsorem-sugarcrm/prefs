@@ -34,12 +34,15 @@ if [[ "$(uname)" = "Darwin" ]]; then
   brew tap homebrew/homebrew-php
   brew tap homebrew/science
   brew tap homebrew/python
+  brew tap homebrew/apache
 
   ## Casks
-  brew cask install alfred android-studio atom bettertouchtool cyberduck dropbox firefox github-desktop gitkraken imageoptim iterm2 java jing kitematic macdown namechanger nylas-n1 qlmarkdown sequel-pro sketch skitch sublime-text the-unarchiver vagrant virtualbox vivaldi vlc
+  brew cask install alfred android-studio atom bettertouchtool cyberduck dropbox firefox github-desktop gitkraken hyperterm imageoptim iterm2 java jing kitematic macdown namechanger nylas-n1 qlmarkdown sequel-pro sketch skitch sublime-text the-unarchiver vagrant virtualbox vivaldi vlc
 
   ## Brews
-  brew install boost cmake composer curl docker elasticsearch freetype git go httpie imagemagick kafka libmemcached libsass libssh2 libyaml mcrypt memcached mongodb mysql openssl php53 php53-apc php53-igbinary php53-mcrypt php53-memcached php53-xdebug php54 php54-apc php54-igbinary php54-mcrypt php54-memcached php54-xdebug php56 phpdocumentor phpunit pkg-config rbenv redis rethinkdb sqlite wget zookeeper
+  brew install boost cmake composer curl diff-so-fancy docker elasticsearch freetype git go httpie imagemagick kafka libmemcached libsass libssh2 libyaml mariadb mcrypt memcached mongodb openssl pkg-config rbenv redis rethinkdb sqlite wget zookeeper
+  ## PHP brews
+  brew install php53 php53-apc php53-igbinary php53-mcrypt php53-memcached php53-xdebug php54 php54-apc php54-igbinary php54-mcrypt php54-memcached php54-xdebug php56 phpdocumentor phpunit php-code-sniffer
 
   ## OpenCV
   brew install opencv
@@ -49,7 +52,7 @@ if [[ "$(uname)" = "Darwin" ]]; then
   brew cask cleanup
 
   # install Atom packages
-  apm install atom-beautify atom-ternjs autocomplete-php color-picker emmet highlight-line jshint linter linter-eslint merge-conflicts minimap pigments react tabs-to-spaces linter-phpcs tool-bar tool-bar-main simple-drag-drop-text docblockr auto-update-packages file-icons
+  apm install atom-beautify atom-ternjs autocomplete-php color-picker editorconfig emmet highlight-line jshint linter linter-eslint merge-conflicts minimap pigments react tabs-to-spaces todo-show linter-phpcs tool-bar tool-bar-main simple-drag-drop-text docblockr auto-update-packages file-icons
 
   # ignore perm changes in git
   git config core.fileMode false
